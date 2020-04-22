@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<!-- Required meta tags-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Title Page-->
+	<title>Vinayan</title>
+
+	<!-- Icons font CSS-->
+	<link href="{% static 'register/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+	<link href="{% static 'register/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+	<!-- Font special for pages-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+	<!-- Vendor CSS-->
+	<link href="{% static 'register/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+	<link href="{% static 'register/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+	<!-- Main CSS-->
+	<link href="{% static 'register/css/main.css' %}" rel="stylesheet" media="all">
+	<style>
+		h1 {
+			color: black;
+		}
+		.input-group{
+			width: 250px;
+		}
+		.input--style-4{
+			background-color: rgba(204, 200, 204, 0.267)
+	</style>
+
+<body>
+	<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+		<div class="wrapper wrapper--w680">
+			<div class="card card-4" style="background-color: white;">
+				<div class="card-body">
+					<h2 class="title" style="text-align: center;">Registration Form</h2>
+					<form method="POST" request = '/register'>
+                        {% csrf_token %}
+						<div class="row row-space" style = "width: 65%;">
+							<div class="col-2">
+								<div class="input-group" >
+									<label class="label">First Name</label>
+									<input class="input--style-4" type="text" name="first_name">
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="input-group" >
+									<label class="label">Last Name</label>
+									<input class="input--style-4" type="text" name="last_name">
+								</div>
+							</div>
+						</div>
+						<div class="row row-space" style="width: 65%;">
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">DOB</label>
+									<div class="input-group-icon">
+										<input class="input--style-4 js-datepicker" type="date" name="date_of_birth" style="margin-left:5px;">
+										<i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+									</div>
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">Register as</label>
+									<div class="p-t-10">
+										<label class="radio-container m-r-45">Student
+											<input type="radio" checked="checked" name="user_type" value = "student">
+											<span class="checkmark"></span>
+										</label>
+										<label class="radio-container">Tutor
+											<input type="radio" name="user_type" value = "tutor">
+											<span class="checkmark"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row row-space" style="width:65%;">
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">Email</label>
+									<input class="input--style-4" type="email" name="email">
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">Phone Number</label>
+									<input class="input--style-4" type="text" name="phone">
+								</div>
+							</div>
+						</div>
+						<div class="row row-space" style="width:65%;">
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">Password</label>
+									<input class="input--style-4" type="password" name="password1">
+								</div>
+							</div>
+							<div class="col-2">
+								<div class="input-group">
+									<label class="label">Confirm Password</label>
+									<input class="input--style-4" type="password" name="password2">
+								</div>
+							</div>
+						</div>
+						<!-- <div class="col-2">
+							<div class="input-group">
+								<label class="label">Password</label>
+								<input class="input--style-4" type="password" name="password1">
+							</div>
+						</div>
+						<div class="col-2">
+							<div class="input-group">
+								<label class="label">Confirm Password</label>
+								<input class="input--style-4" type="password" name="password2">
+							</div>
+						</div> -->
+						<div class="p-t-15" style="margin-left: 188px;">
+							<button class="btn btn--radius-2 btn--blue" type="submit" style="background: #fff; border: 1px solid #6c4079; color: #6c4079; transition: 0.3s; align: center">Submit</button>
+						</div>
+						<div class="text-center w-full p-t-115" style="padding-top: 29px;">
+							<span class="txt1">
+								Already Member ?
+							</span>
+	
+							<a class="txt1 bo1 hov1" href="/login">
+								Log In 							
+							</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Jquery JS-->
+	<script src="{% static 'register/vendor/jquery/jquery.min.js' %}"></script>
+	<!-- Vendor JS-->
+	<script src="{% static 'register/vendor/select2/select2.min.js' %}"></script>
+	<script src="{% static 'register/vendor/datepicker/moment.min.js' %}"></script>
+	<script src="{% static 'register/vendor/datepicker/daterangepicker.js' %}"></script>
+
+	<!-- Main JS-->
+	<script src="{% static 'register/js/global.js' %}"></script>
+
+{% endblock %}
